@@ -1,0 +1,32 @@
+#DON'T SHOW DIRECTORY LISTINGS
+Options -Indexes
+Options +FollowSymLinks -MultiViews -Indexes
+
+#FOLLOW SYMBOLIC LINKS
+Options +FollowSymLinks
+
+#SET DEFAULT HANDLER
+DirectoryIndex index.php index.html index.htm
+
+RewriteEngine on
+
+#WWW REWRITE
+RewriteCond %{HTTP_HOST} ^example\.com$ [NC]
+RewriteRule ^(.*)$ http://www.example.com/$1 [L,R=301]
+
+#REDIRECT OLD PAGE
+RewriteCond %{HTTP_HOST} ^www.example.com$
+RewriteRule ^old-page.html$ http://www.example.com/new-page [R=301,L]
+#Header set Content-Security-Policy "default-src 'self'; script-src 'self' frame-ancestors 'none';"
+<IfModule mod_headers.c>
+    Options -Indexes
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self';"
+</IfModule>
+
+#ERROR 404 PAGE
+ErrorDocument 404 "<H1>Page not found</H1>"
+
+#ERROR 403 PAGE
+ErrorDocument 404 "<H1>Invalid Access</H1>"
