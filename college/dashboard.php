@@ -1,6 +1,7 @@
 <?php   
 include "../db_connect.php";
 include "../commen_php.php";
+$NEW=2;
 $created_date=date("Y/m/d"); 
 $unique_ids=$_SESSION["unique_ids"]; 
 $langtype=$_SESSION["langtype"];
