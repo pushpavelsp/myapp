@@ -5,6 +5,7 @@ $created_date = date("Y/m/d");
 if ($_SESSION['unique_ids'] == '') {
 	header('Location:' . $Base_url21 . 'login_page.php');
 }
+$sample1=1;
 $unique_ids1 = $_SESSION["unique_ids"];
 $unique_ids = $_SESSION["unique_ids"];
 if ($_SESSION['unique_ids'] == '' || $_SESSION['sub_level'] == '') {

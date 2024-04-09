@@ -4,6 +4,7 @@
 	if($_SESSION['unique_ids']==''){    
 		header('Location:'.$Base_url21.'login_page.php');  
 	}
+	$sampedata=1;
 	$ip=$_SERVER['REMOTE_ADDR'];  
 	if(isset($_SESSION["langtype"])){
   		$langtypee=$_SESSION["langtype"] ? $_SESSION['langtype'] : '1';
